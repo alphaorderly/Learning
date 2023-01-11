@@ -11,9 +11,9 @@ class TreeNode:
 def dfs(root: Optional[TreeNode], ans, level: int = 0):
     if len(ans) <= level: ans.append(root.val)
     if root.right != None:
-        dfs(root.right, level + 1)
+        dfs(root.right,ans, level + 1)
     if root.left != None:
-        dfs(root.left, level + 1)
+        dfs(root.left,ans, level + 1)
         
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
