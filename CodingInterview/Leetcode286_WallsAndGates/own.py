@@ -10,7 +10,6 @@ def beautifulPrint(lst: List[List[int]]):
 
 class Solution:
     def wallsAndGates(self, rooms: List[List[int]]) -> None:
-        INF = 2147483647
         vertSize = len(rooms)
         horiSize = len(rooms[0])
 
@@ -26,11 +25,13 @@ class Solution:
                     gates.append([v, h])
 
         while len(gates) != 0:
+            # 순회 위해 빼옴
             gate = gates.popleft()
             for i in range(4):
                 tv = gate[0] + mv[i]
                 th = gate[1] + mh[i]
                 if tv < 0 or tv >= vertSize or th < 0 or th >= horiSize or rooms[tv][th] == 0 or rooms[tv][th] == -1: continue
+                # 적혀있는 거리보다 우리가 더 가까운 경우
                 if rooms[tv][th] > rooms[gate[0]][gate[1]] + 1:
                     rooms[tv][th] = rooms[gate[0]][gate[1]] + 1
                     gates.append([tv, th])
