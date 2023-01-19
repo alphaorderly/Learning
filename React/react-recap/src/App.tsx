@@ -1,11 +1,13 @@
 import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <p>hello world!</p>
-    </div>
-  );
+const App: React.FC = () => {
+  var branch: boolean = true
+
+  if (branch === true) {
+    return <p>true</p>
+  } else {
+    return <p>false</p>
+  }
 }
 
 export default App;
